@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Filtering</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <span class="eyebrow">Citra Digital-Praktikum</span>
+  <h1>Sherly Wijaya <span aria-hidden="true">✿</span></h1>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Masukkan gambar</h2>
+    <p class="subtext"></p>
+    <div class="upload-row">
+      <input type="file" id="fileInput" accept="image/jpeg,image/png,image/bmp,.jpg,.jpeg,.png,.bmp">
+      <button class="secondary" id="resetBtn" disabled>Reset gambar</button>
+    </div>
+    <div class="status" id="status" role="status"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Pilih metode filtering</h2>
+    <p class="subtext"></p>
+    <div class="filter-buttons" id="filterButtons">
+      <button data-filter="mean" disabled>Mean Filter</button>
+      <button data-filter="median" disabled>Median Filter</button>
+      <button data-filter="gaussian" disabled>Gaussian Blur</button>
+      <button data-filter="sharpen" disabled>Sharpen</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Perbandingan hasil</h2>
+    <p class="subtext"></p>
+    <div class="preview-grid">
+      <div class="preview-card">
+        <h3>Gambar asli</h3><p id="originalInfo">Belum ada gambar</p>
+        <div class="canvas-wrap"><canvas id="originalCanvas" width="300" height="200"></canvas></div>
+      </div>
+      <div class="preview-card">
+        <h3 id="resultTitle">Hasil filtering</h3><p id="resultInfo">Pilih metode setelah gambar dimuat</p>
+        <div class="canvas-wrap"><canvas id="resultCanvas" width="300" height="200"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Metrik perbandingan</h2>
+    <p class="subtext"></p>
+    <div class="metrics">
+      <div class="metric"><span>MSE</span><strong id="mseValue">—</strong></div>
+      <div class="metric"><span>PSNR</span><strong id="psnrValue">—</strong></div>
+      <div class="metric"><span>Metode aktif</span><strong id="activeMethod" style="font-size:1rem">Belum ada</strong></div>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
